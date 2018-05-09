@@ -1,0 +1,27 @@
+{
+  "name": "KisanInventoryManager",
+  "version": "1.0.0",
+  "description": "This project is to manage inventory of KisanWorld",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikasjeet51/KisanInventoryManager.git"
+  },
+  "keywords": [
+    "Kisan"
+  ],
+  "author": "Vikas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikasjeet51/KisanInventoryManager/issues"
+  },
+  "homepage": "https://github.com/vikasjeet51/KisanInventoryManager#readme",
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "express": "~4.13.1"
+  }
+}
