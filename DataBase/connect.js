@@ -1,15 +1,15 @@
-const env = require('../Config/config');
+const config = require('../Config/config');
 const Sequelize = require('sequelize');
-var connection=new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DATABASE_PASSWORD, {
+var connection=new Sequelize(config.DATABASE_NAME, config.DATABASE_USERNAME, config.DATABASE_PASSWORD, {
   // the sql dialect of the database
   // currently supported: 'mysql', 'sqlite', 'postgres', 'mssql'
   dialect: 'postgres',
-  //dialect: env.DATABASE_DIALECT,
+  //dialect: config.DATABASE_DIALECT,
   // custom host; default: localhost
-  host: env.DATABASE_HOST,
+  host: config.DATABASE_HOST,
 
   // custom port; default: dialect default
-  port: env.DATABASE_PORT,
+  port: config.DATABASE_PORT,
 
   // custom protocol; default: 'tcp'
   // postgres only, useful for Heroku
