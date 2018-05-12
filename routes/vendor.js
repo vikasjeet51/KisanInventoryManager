@@ -18,10 +18,17 @@ router.post('/', (req, res) => {
     vendoraccountnumber: new_vendor.vendoraccountnumber,
     //
     vendortype:new_vendor.vendortype
-  })
+  }
+//  ,{ validate: true }).catch(errors => {
+//res.json(errors);
+//}
+)
     .then(vendor => {
       res.json(vendor);
-    });
+    })
+    .catch(error => {
+    res.json(error);// Ooops, do some error-handling
+  });
 });
 
 router.get('/', (req, res) => {
@@ -30,7 +37,10 @@ router.get('/', (req, res) => {
   db.Vendors.findAll()
     .then(vendors => {
       res.json(vendors);
-    });
+    })
+    .catch(error => {
+    res.json(error);// Ooops, do some error-handling
+  });
 });
 
 module.exports=router;

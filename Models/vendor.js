@@ -57,18 +57,19 @@ module.exports =function(sequelize, DataTypes){
     },*/
 
     vendortype: {
-      type: DataTypes.STRING//,
-      //values: ['Company', 'Retailer', 'Wholesheller']
-
+      type: DataTypes.ENUM,//,
+      values: ['Company', 'Retailer', 'Wholesheller'],
+validate:{
+  isIn: [['Company', 'Retailer', 'Wholesheller']]}
     },
     isactive: {
       type: DataTypes.BOOLEAN
     }
   }, {
-    underscored: true,
-    timestamps: false,
-    tableName:'vendors',
-    schema:'schema_kw'
+    //underscored: true,
+
+    tableName:'vendors'
+
   });
   return Vendor;
 };
