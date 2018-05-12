@@ -9,7 +9,7 @@ module.exports =function(sequelize, DataTypes){
     vendorid: {
       type:DataTypes.INTEGER,
       primaryKey: true,
-        autoIncrement: true
+      autoIncrement: true
       },
     vendorage: {
       type: DataTypes.TINYINT,
@@ -21,11 +21,28 @@ module.exports =function(sequelize, DataTypes){
     },
     vendoremail: {
       type: DataTypes.STRING,
-      required: false
+      required: false,
+      validate: {
+            validateEmail: function(value) {
+               if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value))
+               {
+                  throw new Error('Email format error!')
+               }
+            }
+          }
     },
     vendormobile: {
       type: DataTypes.STRING,
-      required: false
+      required: false,
+      validate: {
+            validateMobile: function(value) {
+               if(!/^[6-9]\d{9}$/.test(value))
+               {
+                  throw new Error('Mobile format error!')
+               }
+            }
+          }
+
     },
     vendorbankname: {
       type: DataTypes.STRING,
@@ -39,28 +56,15 @@ module.exports =function(sequelize, DataTypes){
       type: DataTypes.STRING,
       required: false
     },
-    /*created_at: false,
-
-// I want updatedAt to actually be called updateTimestamp
-    updated_at: false,
-    /*created_at: {
-      type: DataTypes.DATE,
-      required: false,
-      fieldName:'createddate',
-      field:'createddate'
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-      required: false,
-      fieldName:'modifieddate',
-      field:'modifieddate'
-    },*/
-
     vendortype: {
       type: DataTypes.ENUM,//,
       values: ['Company', 'Retailer', 'Wholesheller'],
 validate:{
-  isIn: [['Company', 'Retailer', 'Wholesheller']]}
+  isIn: {
+    args:[['Company', 'Retailer', 'Wholesheller']],
+  msg:'Invalid Vendor Type'
+}
+}
     },
     isactive: {
       type: DataTypes.BOOLEAN
