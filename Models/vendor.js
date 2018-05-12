@@ -1,13 +1,7 @@
 'use strict'
 
-module.exports = (sequelize, DataTypes) => {
-  const Vendor = sequelize.define('vendor', {
-    vendorid: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      defaultValue: DataTypes.UUIDV1,
-      allowNull: false
-    },
+module.exports =function(sequelize, DataTypes){
+  const Vendor = sequelize.define('vendors', {
     vendorname: {
       type: DataTypes.STRING,
       required: true
@@ -40,10 +34,26 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       required: false
     },
-    vendortype: {
-      type: DataTypes.ENUM,
-      values: ['Company', 'Retailer', 'Wholesheller']
+    /*created_at: {
+      type: DataTypes.DATE,
+      required: false,
+      fieldName:'createddate',
+      field:'createddate'
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      required: false,
+      fieldName:'modifieddate',
+      field:'modifieddate'
+    },*/
 
+    vendortype: {
+      type: DataTypes.STRING//,
+      //values: ['Company', 'Retailer', 'Wholesheller']
+
+    },
+    isactive: {
+      type: DataTypes.BOOLEAN
     }
   }, {
     underscored: true

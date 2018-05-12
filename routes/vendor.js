@@ -6,7 +6,7 @@ var db=require('../Database/db.js');
 router.post('/', (req, res) => {
   //const created_at = new Date();
   const new_vendor = req.body.vendordetl;
-  db.vendors.create({
+  db.Vendors.create({
     vendorname: new_vendor.vendorname,
     vendorage: new_vendor.vendorage,
     vendoraddress: new_vendor.vendoraddress,
@@ -21,6 +21,15 @@ router.post('/', (req, res) => {
   })
     .then(vendor => {
       res.json(vendor);
+    });
+});
+
+router.get('/', (req, res) => {
+  //const created_at = new Date();
+  //const new_vendor = req.body.vendordetl;
+  db.Vendors.findAll()
+    .then(vendors => {
+      res.json(vendors);
     });
 });
 

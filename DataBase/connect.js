@@ -25,7 +25,7 @@ var connection=new Sequelize(config.DATABASE_NAME, config.DATABASE_USERNAME, con
   native: false,
 
   // similar for sync: you can define this to always force sync for models
-  sync: { force: false },
+  sync: { force: true },
 
   define: {
       underscored: true
