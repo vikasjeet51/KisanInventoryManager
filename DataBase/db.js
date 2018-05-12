@@ -12,7 +12,7 @@ db.sequelize = sequelizedbConnect;
 
 //Models/tables
 db.Vendors = require('../Models/vendor.js')(sequelizedbConnect, Sequelize);
-db.Vendors._schema='schema_kw';
+//db.Vendors._schema='schema_kw';
 //db.comments = require('../models/comments.js')(sequelize, Sequelize);
 //db.posts = require('../models/posts.js')(sequelize, Sequelize);
 

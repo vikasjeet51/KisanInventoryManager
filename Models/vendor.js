@@ -6,6 +6,11 @@ module.exports =function(sequelize, DataTypes){
       type: DataTypes.STRING,
       required: true
     },
+    vendorid: {
+      type:DataTypes.INTEGER,
+      primaryKey: true,
+        autoIncrement: true
+      },
     vendorage: {
       type: DataTypes.TINYINT,
       required: false
@@ -34,6 +39,10 @@ module.exports =function(sequelize, DataTypes){
       type: DataTypes.STRING,
       required: false
     },
+    /*created_at: false,
+
+// I want updatedAt to actually be called updateTimestamp
+    updated_at: false,
     /*created_at: {
       type: DataTypes.DATE,
       required: false,
@@ -56,7 +65,10 @@ module.exports =function(sequelize, DataTypes){
       type: DataTypes.BOOLEAN
     }
   }, {
-    underscored: true
+    underscored: true,
+    timestamps: false,
+    tableName:'vendors',
+    schema:'schema_kw'
   });
   return Vendor;
 };
