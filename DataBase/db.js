@@ -15,6 +15,7 @@ db.Vendors = require('../Models/vendor.js')(sequelizedbConnect, Sequelize);
 db.MainCategory = require('../Models/main_category.js')(sequelizedbConnect, Sequelize);
 db.Category = require('../Models/category.js')(sequelizedbConnect, Sequelize);
 db.SubCategory = require('../Models/sub_category.js')(sequelizedbConnect, Sequelize);
+db.Product = require('../Models/Product.js')(sequelizedbConnect, Sequelize);
 //db.Vendors._schema='schema_kw';
 
 
